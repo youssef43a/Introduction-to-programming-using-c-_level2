@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdio>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -177,6 +178,7 @@ namespace TwoDemensionArray {
 }
 
 namespace Vector {
+    // initial vectors
     void ft_VectorInistialization () {
         vector <char> v_Numbers = {'1','2','3','r','5','6'};
         
@@ -187,7 +189,7 @@ namespace Vector {
         }
         cout << endl;
     }
-
+    // vector add elements
     void AddElementToVectors () {
         vector <int> v_Numbers;
         
@@ -244,6 +246,76 @@ namespace Vector {
 
         for(int &Number : V_Numbers) {
             cout << Number << endl;
+        }
+    }
+
+    //Vector of struct
+
+    struct st_employementInfo{
+        string FirstName;
+        string LastName;
+        int salary;
+        int employemntNumber = 0;
+    };
+
+    void ft_VectorOfStruct() {
+        vector <st_employementInfo> v_Employement;
+
+        st_employementInfo Employement;
+
+        Employement.FirstName = "youssef";
+        Employement.LastName = "ennajar";
+        Employement.salary = 10000000;
+
+        v_Employement.push_back(Employement);
+        Employement.FirstName = "Abdeleilah";
+        Employement.LastName = "ennajar";
+        Employement.salary = 20000000;
+
+        v_Employement.push_back(Employement);
+        Employement.FirstName = "Salim";
+        Employement.LastName = "ennajar";
+        Employement.salary = 10000000;
+
+        v_Employement.push_back(Employement);
+
+        cout << "the vector elements is\n\n";
+        //range loop
+        for (st_employementInfo &emplymentInfo : v_Employement) {
+            cout << "first name: " <<  emplymentInfo.FirstName << endl;
+            cout << "Last name : " <<  emplymentInfo.LastName << endl;
+            cout << "Manthly salory: " <<  emplymentInfo.salary << "\n\n";
+        }
+    }
+    // fonction read employement info into vector of struct
+    void ft_ReadVectorOfStruct(vector <st_employementInfo> &v_emplyement) {
+        st_employementInfo employement;
+        char AddNewEmployement = 'y';
+        while (AddNewEmployement == 'y' || AddNewEmployement == 'Y') {
+            printf("Enter employement first name : ");
+            cin >> employement.FirstName;
+            
+            printf("Enter employement last name  : ");
+            cin >> employement.LastName;
+            cin.ignore();
+            
+            cout << "enter employement salory :";
+            cin >> employement.salary;
+            employement.employemntNumber++;
+            v_emplyement.push_back(employement);
+            
+            printf("do you want to add new employement? (y/n) ");
+            cin >> AddNewEmployement;
+        }
+    }
+    // fonction read employement info into vector of struct
+    void ft_PrintVectorOfStruct(vector <st_employementInfo> &v_emplyement) {
+        printf("\nYou entred :\n");
+        for (st_employementInfo &emplyement : v_emplyement) {
+            cout << "\nEmployement " << emplyement.employemntNumber;
+            cout << "\nfirst name: " <<  emplyement.FirstName << endl;
+            cout << "Last name : " <<  emplyement.LastName << endl;
+            cout << "Manthly salory : " <<  emplyement.salary << "\n\n";
         }
     }
 }
