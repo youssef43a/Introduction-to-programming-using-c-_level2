@@ -13,7 +13,7 @@ int main() {
     dt = asctime(gmtm);
     cout << "UTC date and time is: " << dt << "\n\n";
 
-
+             
     //////////////////////////////////////////////
 
     tm* now = localtime(&t);

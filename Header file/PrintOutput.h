@@ -24,7 +24,7 @@ namespace PrintChar {
     void ft_PrintChar(char c) {
         cout << c << '\n';
     }
-}
+} 
 
 namespace PositifOrNegatveNbr {
     string ft_PositifOrNrgativeNumber(int nbr) {
